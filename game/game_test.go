@@ -6,7 +6,7 @@ import (
 
 func TestNewGame(t *testing.T) {
 	var genFoodCalled bool
-	generateNewFood = func(maxX, maxY int) (foodX, foodY int) {
+	generateNewFood = func(maxX, maxY int, s Snake) (foodX, foodY int) {
 		genFoodCalled = true
 		return 0, 0
 	}
@@ -37,7 +37,7 @@ func TestGameTickFoodEating(t *testing.T) {
 		x: 10,
 		y: 10,
 	}
-	generateNewFood = func(maxX, maxY int) (foodX, foodY int) {
+	generateNewFood = func(maxX, maxY int, s Snake) (foodX, foodY int) {
 		return 10, 10
 	}
 	game := NewGame(s, &SpyView{}, 100, 100)
@@ -57,7 +57,7 @@ func TestGameTickFoodGeneration(t *testing.T) {
 		y: 10,
 	}
 	var genFoodCallCount int
-	generateNewFood = func(maxX, maxY int) (foodX, foodY int) {
+	generateNewFood = func(maxX, maxY int, s Snake) (foodX, foodY int) {
 		genFoodCallCount++
 		return 10, 10
 	}

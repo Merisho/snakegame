@@ -120,3 +120,13 @@ func (s *Snake) CollidesItself() bool {
 
 	return false
 }
+
+func (s *Snake) Occupies(x, y int) bool {
+	for _, p := range s.parts {
+		if p.X() == x && p.Y() == y {
+			return true
+		}
+	}
+
+	return false
+}

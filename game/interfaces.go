@@ -4,6 +4,7 @@ type Snake interface {
 	Move()
 	Eat()
 	CollidesItself() bool
+	Occupies(x, y int) bool
 	X() int
 	Y() int
 }

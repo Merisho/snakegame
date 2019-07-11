@@ -28,6 +28,10 @@ func (s *SpySnake) CollidesItself() bool {
 	return false
 }
 
+func (s *SpySnake) Occupies(x, y int) bool {
+	return false
+}
+
 type SpyView struct {
 	renderCallCount int
 }

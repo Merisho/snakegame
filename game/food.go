@@ -5,8 +5,14 @@ import (
 	"time"
 )
 
-var rnd = rand.New(rand.NewSource(time.Now().UnixNano()))
+var foodRnd = rand.New(rand.NewSource(time.Now().UnixNano()))
 
-var generateNewFood = func(maxX, maxY int) (x, y int) {
-	return rnd.Intn(maxX), rnd.Intn(maxY)
+var generateNewFood = func(maxX, maxY int, s Snake) (x, y int) {
+	x, y = foodRnd.Intn(maxX), foodRnd.Intn(maxY)
+
+	for s.Occupies(x, y) {
+		x, y = foodRnd.Intn(maxX), foodRnd.Intn(maxY)
+	}
+
+	return
 }

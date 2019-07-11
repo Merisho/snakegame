@@ -13,17 +13,7 @@ type Snake struct {
 }
 
 func (s *Snake) Occupies(x, y int) bool {
-	if s.s.Head().X() == x && s.s.Head().Y() == y {
-		return true
-	}
-
-	for _, part := range s.s.Tail().Parts() {
-		if part.X() == x && part.Y() == y {
-			return true
-		}
-	}
-
-	return false
+	return s.s.Occupies(x, y)
 }
 
 func (s *Snake) Length() int {

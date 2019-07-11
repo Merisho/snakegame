@@ -134,3 +134,13 @@ func TestCollidesItself(t *testing.T) {
 
 	t.Fatal("Must return true in case snake collides itself")
 }
+
+func TestOccupies(t *testing.T) {
+	snake := NewSnake(10, 10)
+
+	if snake.Occupies(10, 10) {
+		return
+	}
+
+	t.Fatal("Must return true in case snake occupies given coords")
+}

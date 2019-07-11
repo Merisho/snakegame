@@ -1,7 +1,7 @@
 package game
 
 func NewGame(s Snake, v View, maxX, maxY int) *Game {
-	foodX, foodY := generateNewFood(maxX, maxY)
+	foodX, foodY := generateNewFood(maxX, maxY, s)
 	return &Game{
 		foodX: foodX,
 		foodY: foodY,
@@ -42,7 +42,7 @@ func (g *Game) Tick() {
 		return
 	} else if g.snakeCollidedFood() {
 		g.s.Eat()
-		g.foodX, g.foodY = generateNewFood(g.maxX, g.maxY)
+		g.foodX, g.foodY = generateNewFood(g.maxX, g.maxY, g.s)
 	}
 
 	g.v.Render(g.foodX, g.foodY)

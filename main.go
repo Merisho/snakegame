@@ -17,7 +17,7 @@ const (
 	exit         = 27
 	mapWidth     = 20
 	mapHeight    = 10
-	tickInterval = 75 * time.Millisecond
+	tickInterval = 100 * time.Millisecond
 )
 
 func main() {
