@@ -10,17 +10,24 @@ const (
 
 func newPart(x, y, vector int) *Part {
 	return &Part{
-		Point: &Point{
-			x: x,
-			y: y,
-		},
+		x: x,
+		y: y,
 		vector: vector,
 	}
 }
 
 type Part struct {
-	*Point
+	x int
+	y int
 	vector int
+}
+
+func (p *Part) X() int {
+	return p.x
+}
+
+func (p *Part) Y() int {
+	return p.y
 }
 
 func (p *Part) Vector() int {

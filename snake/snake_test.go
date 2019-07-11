@@ -122,10 +122,10 @@ func TestSnakeMovement(t *testing.T) {
 func TestCollidesItself(t *testing.T) {
 	snake := NewSnake(10, 10)
 	snake.parts = []*Part{
-		{ Point: &Point{x: 10, y: 10} },
-		{ Point: &Point{x: 11, y: 10} },
-		{ Point: &Point{x: 11, y: 9} },
-		{ Point: &Point{x: 10, y: 10} },
+		newPart(10, 10, NullVector),
+		newPart(11, 10, NullVector),
+		newPart(11, 9, NullVector),
+		newPart(10, 10, NullVector),
 	}
 
 	if snake.CollidesItself() {
